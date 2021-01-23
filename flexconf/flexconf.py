@@ -92,10 +92,10 @@ class FlexConf:
         patterns, self.__conf_dir = generate_pattern_list(work_dir)
 
         # コマンドライン引数パースする
-        comm_args: Namespace = parse_command_line(arg_parser, patterns)
+        self.comm_args: Namespace = parse_command_line(arg_parser, patterns)
         # パースした引数を適宜使いやすいように配置する
-        self.is_debug_mode: bool = comm_args.is_debug_mode
-        self.__pattern: str = comm_args.pattern
+        self.is_debug_mode: bool = self.comm_args.is_debug_mode
+        self.__pattern: str = self.comm_args.pattern
         # ファイルからパラメータを読み込む
         self.__load_config()
 
