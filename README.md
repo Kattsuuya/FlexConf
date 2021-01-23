@@ -39,7 +39,7 @@ B = 1920 1080       # 値にものが文字列として読み込まれる
 
 ```py
 # sample.py
-from myutils import FlexConf
+from flexconf import FlexConf
 
 class SubClass(FlexConf):
     # __init__を定義する必要はない
