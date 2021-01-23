@@ -34,7 +34,7 @@ class FlexConf:
     この設定を利用するサンプルプログラム
     ```py
     # sample.py
-    from myutils import FlexConf
+    from flexconf import FlexConf
 
     class SubClass(FlexConf):
         # __init__を定義する必要はない
@@ -78,7 +78,8 @@ class FlexConf:
             "arg1",
             help="first argument",
         )
-        s = SubClass(parser)    # FlexConfを継承したクラスに引数で渡す
+        s = SubClass(parser)    # FlexConfを継承したクラスに引数で渡し、
+                                # super().__init__(parser)を呼ぶ
         ```
 
         Parameters
@@ -125,7 +126,7 @@ def generate_pattern_list(dir_path: str) -> set:
         (パターン名のリスト、.flexconfディレクトリのパス)
     """
     # 設定ファイルのディレクトリパス
-    conf_dir = f"./{dir_path}/.flexconf"
+    conf_dir = f"{dir_path}/.flexconf"
     # 設定ファイルのリスト
     conf_list = os.listdir(conf_dir)
     # それぞれの設定ファイル名のルート部をパターン名とする
