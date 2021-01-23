@@ -183,5 +183,8 @@ def main():
         "price = 100\n",
     ]
     # テンプレートファイルを作成
-    with open(f"{conf_dir}/template.conf", "w") as f:
+    template_path = f"{conf_dir}/template.conf"
+    with open(template_path, "w") as f:
         f.writelines(template_conf)
+    print("Configuration file template has been generated.")
+    print(f"-> {template_path}")
