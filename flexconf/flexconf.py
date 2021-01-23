@@ -2,6 +2,7 @@ import inspect
 import os
 from argparse import ArgumentParser, Namespace
 from configparser import ConfigParser
+from pathlib import Path
 
 #  __init__で--debug, --patternを追加するだけのデフォルトパーサ
 default_parser = ArgumentParser()
@@ -125,6 +126,9 @@ def generate_pattern_list(dir_path: str) -> set:
     set
         (パターン名のリスト、.flexconfディレクトリのパス)
     """
+    path = Path(dir_path)
+    # 絶対パスに変換
+    dir_path = path.resolve() if not path.is_absolute() else path
     # 設定ファイルのディレクトリパス
     conf_dir = f"{dir_path}/.flexconf"
     # 設定ファイルのリスト
