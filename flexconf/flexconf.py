@@ -108,7 +108,7 @@ class FlexConf:
         config.read(f"{self.__conf_dir}/{self.__pattern}.conf")
         for param in config["DEFAULT"]:
             # self.パラメータ名 = パラメータ値
-            exec(f'self.{param} = {config["DEFAULT"][param]}')
+            exec(f'self.{param} = "{config["DEFAULT"][param]}"')
 
 
 def generate_pattern_list(dir_path: str) -> set:
